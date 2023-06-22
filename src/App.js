@@ -130,13 +130,13 @@ function MovieList() {
   return (
     <ul className="list">
       {movies?.map((movie) => (
-        <Movie />
+        <Movie movie={movie} key={movie.imdbID} />
       ))}
     </ul>
   );
 }
 
-function Movie() {
+function Movie({ movie }) {
   return (
     <li key={movie.imdbID}>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
