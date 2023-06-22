@@ -55,9 +55,7 @@ function NavBar() {
     <nav className="nav-bar">
       <Logo />
       <Search />
-      <p className="num-results">
-        Found <strong>X</strong> results
-      </p>
+      <NumResults />
     </nav>
   );
 }
@@ -84,6 +82,13 @@ function Search() {
   );
 }
 
+function NumResults() {
+  return (
+    <p className="num-results">
+      Found <strong>X</strong> results
+    </p>
+  );
+}
 function Main() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
