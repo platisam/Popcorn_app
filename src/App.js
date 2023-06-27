@@ -56,6 +56,7 @@ export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const query = "interstellar";
 
   useEffect(function () {
@@ -76,6 +77,7 @@ export default function App() {
         setIsLoading(false);
       } catch (err) {
         console.error(err.message);
+        setError(err.message);
       }
     }
     fetchMovies();
