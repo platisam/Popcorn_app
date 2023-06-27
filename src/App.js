@@ -55,10 +55,12 @@ const KEY = "ede44225";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const query = "interstellar";
 
   useEffect(function () {
     async function fetchMovies() {
+      setIsLoading(true);
       const res = await fetch(
         `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
       );
@@ -66,6 +68,7 @@ export default function App() {
       setMovies(data.Search);
       console.log(movies); // stale state
       console.log(data.Search);
+      setIsLoading(false);
     }
     fetchMovies();
   }, []);
