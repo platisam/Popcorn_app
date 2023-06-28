@@ -58,7 +58,7 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [selectedId, setSelectedId] = useState("tt1375666");
+  const [selectedId, setSelectedId] = useState(null);
 
   /*
   useEffect(function () {
@@ -78,6 +78,10 @@ export default function App() {
 
   console.log("During render");
   */
+  function handleSelectMovie(id) {
+    setSelectedId(id);
+  }
+
   useEffect(
     function () {
       async function fetchMovies() {
@@ -246,7 +250,7 @@ function MovieList({ movies }) {
 
 function Movie({ movie }) {
   return (
-    <li>
+    <li onClick={handleSelectMovie}>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
       <h3>{movie.Title}</h3>
       <div>
