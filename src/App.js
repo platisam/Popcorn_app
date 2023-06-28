@@ -53,12 +53,13 @@ const average = (arr) =>
 const KEY = "ede44225";
 
 export default function App() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("inception");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const tempQuery = "interstellar";
+  const [selectedId, setSelectedId] = useState("tt1375666");
+
   /*
   useEffect(function () {
     console.log("After initial render");
@@ -250,6 +251,10 @@ function Movie({ movie }) {
       </div>
     </li>
   );
+}
+
+function MovieDetails({ selectedId }) {
+  return <div className="details">{selectedId}</div>;
 }
 
 function WatchedSummary({ watched }) {
