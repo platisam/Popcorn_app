@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 
-export function useKey() {
+export function useKey(key, action) {
   useEffect(
     function () {
       function callback(e) {
-        if (e.code === "Escape") {
-          onCloseMovie();
+        if (e.code.toLowerCase() === key.toLowerCase()) {
+          action();
         }
       }
       document.addEventListener("keydown", callback);
@@ -13,6 +13,6 @@ export function useKey() {
         document.removeEventListener("keydown", callback);
       };
     },
-    [onCloseMovie]
+    [action, key]
   );
 }
