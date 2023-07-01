@@ -61,11 +61,6 @@ export default function App() {
   const { movies, isLoading, error } = useMovies(query, handleCloseMovie);
 
   const [watched, setWatched] = useLocalStorageState([]);
-  //const [watched, setWatched] = useState([]);
-  // const [watched, setWatched] = useState(() => {
-  // const storedValue = localStorage.getItem("watched");
-  // return JSON.parse(storedValue);
-  // });
   /*
   useEffect(function () {
     console.log("After initial render");
@@ -101,13 +96,6 @@ export default function App() {
   function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
-
-  useEffect(
-    function () {
-      localStorage.setItem("watched", JSON.stringify(watched));
-    },
-    [watched]
-  );
 
   return (
     <>
